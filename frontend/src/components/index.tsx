@@ -1,0 +1,6 @@
+export {default as MusicCard} from './MusicCard'
+export {default as BgImage} from './BgImage'
+export {default as MusicsSection} from './MusicsSection'
+export {default as Navigation} from './Navigation'
+export {default as Footer} from './Footer'
+export {default as ContactForm} from './ContactForm'

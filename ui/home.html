@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <title>User interface || Music player</title>
+    <script src="./tailwind.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundImage: {
+              first: "linear-gradient(to right,#0ea5e9,#6366f1)",
+              // second: "linear-gradient(to right, #673ab7, #512da8)",
+              second: "linear-gradient(to top,#000328,#00458e )",
+              instagram:"linear-gradient(-45deg,#feda75,#fa7e1e ,#d62976,#962fbf,#4f5bd5)"
+            },
+            boxShadow: {
+              h: "0 0 3px #ffffff",
+              l: "0 0 3px rgba(0,0,0,0.75)",
+            },
+          },
+          colors: {
+            inDark: "rgb(9, 18, 39)",
+            light: "#fefefe",
+            white: "#ffffff",
+            black: "#000000",
+            primary: "#013672",
+            prim: "#0ea5e9",
+            secondary: "#6366f1",
+            pinkWarning: "#db2777",
+            transparent: "transparent",
+            currentColor: "currentColor",
+            gray: "#343333",
+            "gray-400": "#94a3b8",
+            "gray-300": "#cbd5e1",
+            "gray-200": "#e2e8f0",
+          },
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: "1rem",
+            },
+            screens: {
+              "3xl": "1400px",
+              "2xl": "1200px",
+              xl: "1200px",
+            },
+          },
+          screens: {
+            "3xl": "1920px",
+            "2xl": "1536px",
+            xl: "1280px",
+            lg: "1024px",
+            md: "768px",
+            sm: "640px",
+            xs: "400px",
+          },
+        },
+        darkMode: "class",
+      };
+      console.log(tailwind.config);
+    </script>
+    <style type="text/tailwindcss">
+      @font-face {
+        font-family: "Danube";
+        src: url("./assets/fonts/KB\ Danube.ttf");
+      }
+      @font-face {
+        font-family: "Nasalization";
+        src: url("./assets/fonts/nasalization-rg.otf");
+      }
+      @font-face {
+        font-family: "Androica";
+        src: url("./assets/fonts/MBF\ Androica.ttf");
+      }
+      @layer components {
+        .like-btn {
+          background: url("./assets/heart.png") no-repeat;
+          background-size: 2900%;
+          height: 90px;
+          width: 90px;
+          transform: translate(-50%, -50%);
+          @apply absolute top-[50%] left-[18%] bg-left;
+        }
+        .liked {
+          animation: animate 1s steps(28) 1;
+          color:#E2264D !important;
+          @apply bg-right;
+        }
+        .wavy {
+          /* clip-path: polygon(100% 100%, 0% 100% , 0.00% 51.65%, 1.00% 51.61%, 2.00% 51.47%, 3.00% 51.24%, 4.00% 50.93%, 5.00% 50.53%, 6.00% 50.04%, 7.00% 49.49%, 8.00% 48.85%, 9.00% 48.15%, 10.00% 47.39%, 11.00% 46.58%, 12.00% 45.72%, 13.00% 44.82%, 14.00% 43.89%, 15.00% 42.94%, 16.00% 41.97%, 17.00% 41.00%, 18.00% 40.03%, 19.00% 39.07%, 20.00% 38.13%, 21.00% 37.22%, 22.00% 36.35%, 23.00% 35.52%, 24.00% 34.74%, 25.00% 34.02%, 26.00% 33.36%, 27.00% 32.78%, 28.00% 32.27%, 29.00% 31.84%, 30.00% 31.50%, 31.00% 31.24%, 32.00% 31.07%, 33.00% 31.00%, 34.00% 31.01%, 35.00% 31.12%, 36.00% 31.32%, 37.00% 31.60%, 38.00% 31.97%, 39.00% 32.43%, 40.00% 32.96%, 41.00% 33.57%, 42.00% 34.25%, 43.00% 34.99%, 44.00% 35.79%, 45.00% 36.63%, 46.00% 37.52%, 47.00% 38.44%, 48.00% 39.39%, 49.00% 40.35%, 50.00% 41.32%, 51.00% 42.29%, 52.00% 43.26%, 53.00% 44.20%, 54.00% 45.13%, 55.00% 46.01%, 56.00% 46.86%, 57.00% 47.65%, 58.00% 48.39%, 59.00% 49.07%, 60.00% 49.68%, 61.00% 50.21%, 62.00% 50.67%, 63.00% 51.04%, 64.00% 51.33%, 65.00% 51.53%, 66.00% 51.63%, 67.00% 51.65%, 68.00% 51.57%, 69.00% 51.40%, 70.00% 51.15%, 71.00% 50.80%, 72.00% 50.38%, 73.00% 49.87%, 74.00% 49.28%, 75.00% 48.63%, 76.00% 47.91%, 77.00% 47.13%, 78.00% 46.30%, 79.00% 45.43%, 80.00% 44.51%, 81.00% 43.58%, 82.00% 42.62%, 83.00% 41.65%, 84.00% 40.67%, 85.00% 39.71%, 86.00% 38.75%, 87.00% 37.82%, 88.00% 36.92%, 89.00% 36.06%, 90.00% 35.25%, 91.00% 34.49%, 92.00% 33.79%, 93.00% 33.16%, 94.00% 32.60%, 95.00% 32.12%, 96.00% 31.72%, 97.00% 31.40%, 98.00% 31.17%, 99.00% 31.04%, 100.00% 30.99%); */
+          clip-path: polygon(
+            100% 100%,
+            0% 100%,
+            0% 25%,
+            2% 24.78%,
+            4% 24.12%,
+            6% 23.05%,
+            8% 21.61%,
+            10% 19.85%,
+            12% 17.82%,
+            14% 15.61%,
+            16% 13.28%,
+            18% 10.93%,
+            20% 8.64%,
+            22% 6.48%,
+            24% 4.53%,
+            26% 2.87%,
+            28% 1.55%,
+            30% 0.61%,
+            32% 0.1%,
+            34% 0.02%,
+            36% 0.39%,
+            38% 1.19%,
+            40% 2.39%,
+            42% 3.94%,
+            44% 5.8%,
+            46% 7.9%,
+            48% 10.16%,
+            50% 12.5%,
+            52% 14.84%,
+            54% 17.1%,
+            56% 19.2%,
+            58% 21.06%,
+            60% 22.61%,
+            62% 23.81%,
+            64% 24.61%,
+            66% 24.98%,
+            68% 24.9%,
+            70% 24.39%,
+            72% 23.45%,
+            74% 22.13%,
+            76% 20.47%,
+            78% 18.52%,
+            80% 16.36%,
+            82% 14.07%,
+            84% 11.72%,
+            86% 9.39%,
+            88% 7.18%,
+            90% 5.15%,
+            92% 3.39%,
+            94% 1.95%,
+            96% 0.88%,
+            98% 0.22%,
+            100% 0%
+          );
+        }
+      }
+      @keyframes animate {
+        0% {
+          background-position: left;
+        }
+        100% {
+          background-position: right;
+        }
+      }
+      .neon {
+        .neonText {
+          color: #fff;
+          text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+            0 0 32px #12a2e9, 0 0 44px #12a2e9, 0 0 92px #12a2e9,
+            0 0 102px #12a2e9;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-light dark:bg-inDark min-h-screen flex flex-col justify-between"
+  >
+    <div class="w-full">
+      <nav
+        class="bg-light z-10 dark:bg-inDark w-full fixed top-0 left-0 shadow-l dark:shadow-h"
+      >
+        <div class="container py-1 flex justify-between items-center">
+          <a href="#" class="px-2 py-1 flex items-center">
+            <span
+              class="font-[Nasalization] text-xl xs:text-2xl dark:text-[white]"
+              >Sound</span
+            >
+            <span
+              class="font-[Androica] tracking-wide text-lg xs:text-xl p-1 rounded-md bg-first text-white"
+              >Byte</span
+            >
+          </a>
+          <button
+            onclick="toggleTheme()"
+            class="peer w-12 h-12 cursor-pointer bg-gradient-to-t from-prim to-secondary hover:bg-gradient-to-b py-1 px-2 rounded-md"
+          >
+            <i class="fa-regular fa-sun-bright text-white text-xl"></i>
+          </button>
+        </div>
+      </nav>
+      <section class="mt-16">
+        <div class="container">
+          <div
+            class="max-w-screen-lg mx-auto p-2 rounded-lg border border-gray-300 dark:border-[#334155]"
+          >
+            <div
+              class="w-full border-b border-gray-300 mt-1 dark:border-[#334155] p-1 flex items-center justify-between"
+            >
+              <div class="flex items-center">
+                <div class="font-sans font-bolder text-gray text-lg px-2">
+                  <span class="dark:text-gray-300">01.</span>
+                </div>
+                <div
+                  class="w-10 h-10 cursor-pointer rounded-full border-[2px] flex items-center justify-center border-[#6366f1]"
+                >
+                  <i
+                    class="text-xl bg-first bg-clip-text text-transparent fa fa-play"
+                  ></i>
+                </div>
+                <img
+                  class="w-16 h-16 object-cover rounded-md mx-2"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQkGh1hp_QfDub1K-ClvE3XPxSmtVK22s0cBhZbfPmlQ&s"
+                  alt=""
+                />
+                <div class="p-2">
+                  <h2 class="text-lg font-bold dark:text-gray-300">
+                    Dwayne Johnson
+                  </h2>
+                  <span class="text-gray text-md dark:text-gray-400"
+                    >It's About Power</span
+                  >
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="p-3 relative group">
+                  <div class="like-btn cursor-pointer"></div>
+                  <span class="group-hover:text-[#E2264D] font-bolder text-lg text-gray px-2 ml-3 dark:text-gray-400"
+                    >12</span
+                  >
+                </div>
+                <div
+                  class="cursor-pointer px-3 py-2 rounded-md bg-gradient-to-t from-prim to-secondary hover:bg-gradient-to-b text-white flex items-center"
+                >
+                  <i class="fa-solid fa-cloud-arrow-down text-xl"></i>
+                  <span class="ml-1">download</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container p-2">
+          <div class="p-1">
+            <h1
+              class="text-2xl font-sans text-center font-bold dark:text-gray-200"
+            >
+              Contact Us
+            </h1>
+          </div>
+          <form action="" method="post" class="max-w-screen-sm mx-auto">
+            <div class="w-full p-1 flex max-sm:flex-col">
+              <div class="relative w-full p-1 max-sm:mr-0 mr-2">
+                <input
+                  type="text"
+                  id="name"
+                  class="peer w-full bg-transparent border dark:focus:border-[#0ea5e9] rounded-md border-[#e2e8f0] dark:border-[#334155] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9]"
+                  placeholder="name"
+                />
+                <label
+                  for="name"
+                  class="absolute select-none left-1 ml-1 top-2.5 bg-white dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-4 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                  >Name</label
+                >
+              </div>
+              <div class="relative w-full p-1">
+                <input
+                  type="text"
+                  id="surname"
+                  class="peer bg-transparent dark:focus:border-[#0ea5e9] w-full dark:border-[#334155] border rounded-md border-[#e2e8f0] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9]"
+                  placeholder="name"
+                />
+                <label
+                  for="surname"
+                  class="absolute select-none left-1 ml-1 top-2.5 bg-white dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-4 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                  >Surname</label
+                >
+              </div>
+            </div>
+            <div class="p-1 mt-2">
+              <div class="relative p-1">
+                <input
+                  type="email"
+                  id="email"
+                  class="peer bg-transparent w-full dark:focus:border-[#0ea5e9] dark:border-[#334155] border rounded-md border-[#e2e8f0] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9] invalid:border-pinkWarning invalid:text-pinkWarning"
+                  placeholder="name"
+                />
+                <label
+                  for="email"
+                  class="select-none absolute left-1 ml-1 top-3 bg-white dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-4 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                  >Email</label
+                >
+                <p class="hidden text-pinkWarning mt-2 peer-invalid:block">
+                  Please enter valid email.
+                </p>
+              </div>
+            </div>
+            <div class="p-1">
+              <div class="relative w-full p-1">
+                <textarea
+                  type="text"
+                  id="comment"
+                  class="peer w-full dark:border-[#334155] bg-transparent border rounded-md border-[#e2e8f0] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9] dark:focus:border-[#0ea5e9]"
+                  placeholder="name"
+                ></textarea>
+                <label
+                  for="comment"
+                  class="select-none absolute left-1 ml-1 top-2.5 bg-white dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-4 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                  >Comment</label
+                >
+              </div>
+            </div>
+            <div class="flex justify-end p-1">
+              <button
+                class="px-2 py-1 text-lg transition duration-500 hover:bg-none hover:text-[#12A2E9] border-[2px] border-transparent hover:border-[#12A2E9] active:ring active:ring-[#a78bfa] bg-first text-white rounded-md"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <footer
+        class="w-full wavy bg-[#013672] dark:bg-second min-h-[200px] flex items-center"
+      >
+        <div class="container py-2 text-center">
+          <span class="text-lg text-white">2023 All rights are reserved.</span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      function toggleTheme() {
+        if (document.documentElement.className === "") {
+          document.documentElement.classList.add("dark");
+          document
+            .querySelector("i.fa-sun-bright")
+            .classList.replace("fa-sun-bright", "fa-moon");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document
+            .querySelector("i.fa-moon")
+            .classList.replace("fa-moon", "fa-sun-bright");
+        }
+      }
+    </script>
+  </body>
+</html>

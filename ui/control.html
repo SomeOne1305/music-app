@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/icons/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <title>Control page</title>
+    <style>
+      #screen {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%2300ADEE' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+    </style>
+  </head>
+  <body>
+    <div id="screen" class="w-full min-h-screen bg-[#FBFBFB] flex">
+      <div class="fixed max-md:flex top-0 left-0 w-full p-2 z-[99] items-center hidden">
+        <div class="px-2 py-1 cursor-pointer" >
+          <i class="fa fa-bars text-white text-xl"></i>
+        </div>
+      </div>
+      <aside
+        class="w-1/4 h-screen bg-[#03001C] max-md:left-[-100%] fixed top-0 left-0 overflow-y-auto"
+      >
+        <div
+          class="w-full h-full p-1 flex flex-col justify-between items-center"
+        >
+          <div class="w-full p-1">
+            <div class="text-center mt-2">
+              <a href="#">
+                <i class="icon-icon text-3xl"></i>
+              </a>
+            </div>
+            <ul class="p-1 pl-2 mt-4">
+              <li
+                class="w-full rounded-md bg-[#020633] transtion duration-500 list-style-none"
+              >
+                <a href="#" class="block p-2 text-[#FEFCF3]"
+                  ><i class="fa fa-home text-[#FEFCF3] mr-2"></i> Home</a
+                >
+              </li>
+              <li
+                class="w-full rounded-md transtion mt-2 duration-500 hover:bg-[#020633] list-style-none"
+              >
+                <a href="#" class="block p-2 text-[#FEFCF3]"
+                  ><i class="fa fa-database text-[#FEFCF3] mr-2"></i>
+                  Database</a
+                >
+              </li>
+              <li class="w-full rounded-md mt-2 list-style-none pl-3">
+                <a
+                  href="#"
+                  class="block hover:border-white px-2 py-1 border-l-[2px] border-[#020633] text-[#FEFCF3]"
+                >
+                  <span class="p-[3px] text-white bg-green-400 text-[12px] mr-1"
+                    >POST</span
+                  >
+                  Add music
+                </a>
+                <a
+                  href="#"
+                  class="block hover:border-white px-2 py-1 border-l-[2px] border-[#020633] text-[#FEFCF3]"
+                >
+                  <span class="p-[3px] text-white bg-red-500 text-[12px] mr-1"
+                    >DELETE</span
+                  >
+                  Delete music
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full p-2">
+            <div
+              class="w-full text-center cursor-pointer px-3 py-2 rounded-md bg-[#191F2B]"
+            >
+              <span class="text-[#EA5455] text-lg">Logout</span>
+              <i
+                class="text-[#EA5455] text-lg text ml-1 fa-regular fa-arrow-right-from-bracket"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div class="w-full bg-[#060930] flex justify-end">
+        <div class="w-3/4 p-3 max-md:w-full">
+          <div class="w-full">
+            <div class="p-2 w-full">
+              <h1 class="text-2xl text-slate-100">
+                Add a new music to playlist:
+              </h1>
+              <div class="w-full h-[1px] bg-white my-3"></div>
+            </div>
+            <form
+              action=""
+              class="w-full p-3 rounded-lg shadow-[0 0 0.4px] shadow-white"
+            >
+              <div class="p-1">
+                <div class="p-1">
+                  <div class="p-1">
+                    <span class="text-white font-[consolas] text-lg"
+                      >Artist name:</span
+                    >
+                  </div>
+                  <div class="w-full relative p-1">
+                    <input
+                      type="email"
+                      id="email"
+                      class="peer w-full text-[#b3b4b5] bg-transparent w-full dark:focus:border-[#0ea5e9] dark:border-[#334155] border rounded-md border-[#b3b4b5] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9] invalid:border-[#db2777] invalid:text-[#db2777]"
+                      placeholder="name"
+                      pattern="^[a-zA-Z0-9\-@]+$"
+                    />
+                    <label
+                      for="email"
+                      class="select-none cursor-pointer absolute left-1 ml-1 top-3 bg-[#060930] dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-5 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                      >Artist name</label
+                    >
+                    <p class="hidden text-[#db2777] mt-2 peer-invalid:block">
+                      Please enter valid name
+                    </p>
+                  </div>
+                </div>
+                <div class="p-1">
+                  <div class="p-1">
+                    <span class="text-white font-[consolas] text-lg"
+                      >Music name:</span
+                    >
+                  </div>
+                  <div class="w-full relative p-1">
+                    <input
+                      type="text"
+                      id="music_name"
+                      class="peer w-full text-[#b3b4b5] bg-transparent w-full dark:focus:border-[#0ea5e9] dark:border-[#334155] border rounded-md border-[#b3b4b5] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9] invalid:border-[#db2777] invalid:text-[#db2777]"
+                      placeholder="name"
+                      pattern="^[a-zA-Z0-9\-@]+$"
+                    />
+                    <label
+                      for="music_name"
+                      class="select-none cursor-pointer absolute left-1 ml-1 top-3 bg-[#060930] dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-5 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                      >Music name</label
+                    >
+                    <p class="hidden text-[#db2777] mt-2 peer-invalid:block">
+                      Please enter valid name
+                    </p>
+                  </div>
+                </div>
+                <div class="p-1">
+                  <div class="p-1">
+                    <span class="text-white font-[consolas] text-lg"
+                      >Title image url:</span
+                    >
+                  </div>
+                  <div class="w-full relative p-1">
+                    <input
+                      type="email"
+                      id="title_image"
+                      class="peer w-full text-[#b3b4b5] bg-transparent w-full dark:focus:border-[#0ea5e9] dark:border-[#334155] border rounded-md border-[#b3b4b5] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9] invalid:border-[#db2777] invalid:text-[#db2777]"
+                      placeholder="name"
+                      pattern="^[a-zA-Z0-9\-@]+$"
+                    />
+                    <label
+                      for="title_image"
+                      class="select-none cursor-pointer absolute left-1 ml-1 top-3 bg-[#060930] dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-5 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                      >Title image url</label
+                    >
+                    <p class="hidden text-[#db2777] mt-2 peer-invalid:block">
+                      Please enter valid name
+                    </p>
+                  </div>
+                </div>
+                <div class="p-1">
+                  <div class="p-1">
+                    <span class="text-white font-[consolas] text-lg"
+                      >Music source url:</span
+                    >
+                  </div>
+                  <div class="w-full relative p-1">
+                    <input
+                      type="email"
+                      id="music_source"
+                      class="peer w-full text-[#b3b4b5] bg-transparent w-full dark:focus:border-[#0ea5e9] dark:border-[#334155] border rounded-md border-[#b3b4b5] p-2 placeholder:text-transparent outline-none focus:border-[2px] focus:border-[#0ea5e9] invalid:border-[#db2777] invalid:text-[#db2777]"
+                      placeholder="name"
+                      pattern="^[a-zA-Z0-9\-@]+$"
+                    />
+                    <label
+                      for="music_source"
+                      class="select-none cursor-pointer absolute left-1 ml-1 top-3 bg-[#060930] dark:bg-inDark px-1 text-[#94a3b8] text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-5 peer-focus:px-1 peer-focus:text-sm peer-focus:text-[#0ea5e9]"
+                      >Music source url</label
+                    >
+                    <p class="hidden text-[#db2777] mt-2 peer-invalid:block">
+                      Please enter valid name
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="px-1 py-2 flex justify-end">
+                <button
+                  type="submit"
+                  class="px-3 py-2 text-md tracking-wider bg-green-400 text-white rounded-sm"
+                >
+                  POST DATA
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

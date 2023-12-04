@@ -1,0 +1,90 @@
+[
+  {
+    "artist_name":"ANNA ASTI",
+    "song_name":"По Барам",
+    "song_url":"https://cdn3.sefon.pro/prev/qUjE0e1kBh0CQAeDsiHw9g/1691607569/300/ANNA%20ASTI%20-%20%D0%9F%D0%BE%20%D0%91%D0%B0%D1%80%D0%B0%D0%BC%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/anna-asti.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "artist_name":"XXXTenacion",
+    "song_name":"Moonlight",
+    "song_url":"https://cdn2.sefon.pro/prev/4zKrKHudlmiy5aoHIP-REQ/1691608062/111/Xxxtentacion%2C%20John%20Cunningham%20-%20Moonlight%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/xxxtentacion.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "artist_name":"Eminem",
+    "song_name":"Mockingbird",
+    "song_url":"https://cdn3.sefon.pro/prev/Zi6me9ItAaIoXwBZzv_qmA/1691608405/1/Eminem%20-%20Mockingbird%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/eminem.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "artist_name":"Alec Benjamin",
+    "song_name":"Let Me Down Slowly",
+    "song_url":"https://cdn6.sefon.pro/prev/l9bOK7aXyS1r2Shmh2kAzg/1691608493/77/Alec%20Benjamin%20-%20Let%20Me%20Down%20Slowly%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/alec-benjamin.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "artist_name":"The Beatles",
+    "song_name":"Let It Be",
+    "song_url":"https://cdn1.sefon.pro/prev/IZZEFsYL583bc4M5BdnGsA/1691685750/1/The%20Beatles%20-%20Let%20It%20Be%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/the-beatles.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "artist_name":"RedBone",
+    "song_name":"Come And Get Your Love",
+    "song_url":"https://cdn1.sefon.pro/prev/6a5irXAjW32Spwh_Vrr71Q/1691681878/358/Redbone%20-%20Come%20And%20Get%20Your%20Love%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/redbone.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "id":7,
+    "artist_name":"Alan Walker feat. Sasha Alex Sloan",
+    "song_name":"Hero",
+    "song_url":"https://cdn6.sefon.pro/prev/MTsJndcVlZf3r3I_h9IU8g/1691686281/467/Alan%20Walker%20feat.%20Sasha%20Alex%20Sloan%20-%20Hero%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/alan-walker.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "artist_name":"Xcho & Macan",
+    "song_name":"Memories",
+    "song_url":"https://cdn8.sefon.pro/prev/d6ze-inky5ODe_EgkFNHDA/1691686448/195/Xcho%20%26%20Macan%20-%20Memories%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/xcho.jpg"
+  },
+  {
+    "artist_name":"Luis Fonsi feat. Daddy Yankee",
+    "song_name":"Despacito",
+    "song_url":"https://cdn8.sefon.pro/prev/YR0wJYhij0shX4HvS7ccHA/1691686572/53/Luis%20Fonsi%20feat.%20Daddy%20Yankee%20-%20Despacito%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/luis-fonsi.jpg",
+    "likes":[
+      
+    ]
+  },
+  {
+    "artist_name":"Minelli",
+    "song_name":"Rampampam",
+    "song_url":"https://cdn6.sefon.pro/prev/3S23Am0WBcglDARnySEgJw/1691686719/231/Minelli%20-%20Rampampam%20%28192kbps%29.mp3",
+    "title_image":"https://sefon.pro/img/artist_photos/minelli.jpg",
+    "likes":[
+      
+    ]
+  }
+]
