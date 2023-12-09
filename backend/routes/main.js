@@ -1,7 +1,11 @@
 //Libraries
 import express from "express";
 import axios from 'axios'
-import nodemailer from 'nodemailer'
+import {promises as fs} from 'fs'
+import path from 'path'
+import mime from 'mime-types'
+// helper
+import transporter from "../mail/transporter.js";
 
 //Models
 import Music from "../models/music.js";
@@ -9,6 +13,45 @@ import Music from "../models/music.js";
 const router = express.Router();
 
 //https://freeipapi.com/api/json/
+
+router.get("*", async (req, res) => {
+  try {
+    // Parsing the URL
+    const request = new URL(
+      req.protocol + "://" + req.get("host") + req.originalUrl
+    );
+    // Extracting the path of file
+    const action = request.pathname;
+  
+    // Path Refinements
+    const filePath = path.join(__dirname, action).split("%20").join(" ");
+  
+    // Checking if the path exists
+    const exists = await fs.access(filePath);
+  
+    if (!exists) {
+      res.status(404).json({ status: 404, message: "Not Found" });
+      return;
+    }
+  
+    // Extracting file extension
+    const contentType = mime.lookup(action) || 'application/octet-stream';
+  
+    // Reading the file
+    const content = await fs.readFile(filePath);
+  
+    // Setting the headers
+    res.set({
+      "Content-Type": contentType,
+    });
+  
+    // Serving the file
+    res.send(content);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: 500, message: "Internal Server Error" });
+  }
+});
 
 router.get("/", (req, res) => {
   console.log(req.clientIp);
@@ -87,19 +130,15 @@ router.delete('/musics/:id/likes',async (req,res)=>{
 })
 
 router.post('/contact',(req,res)=>{
+  const {email, name, surname,comment} = req.body
   try {
-    const transporter = nodemailer.createTransport({
-      service:'Gmail',
-      auth:{
-        user:process.env.MY_EMAIL,
-        password:process.env.MY_PASSWORD
-      }
-    })
     const mailOptions = {
-      from:process.env.MY_EMAIL,
+      from:email,
       to:process.env.MY_EMAIL,
-      subject:"Contact",
-      text:'some'
+      subject:`Request from ${name}`, 
+      text:
+      `
+      `
     }
     transporter.sendMail(mailOptions,(error,info)=>{
       if (error) {
